@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.bangkit.eyetify.R
 import com.bangkit.eyetify.databinding.FragmentScanBinding
+import com.bangkit.eyetify.ui.activity.ResultActivity
 
 class ScanFragment : Fragment() {
 
@@ -24,7 +25,7 @@ class ScanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentScanBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,7 +34,8 @@ class ScanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addImageButton.setOnClickListener{
-
+            val intent = Intent(this.context, ResultActivity::class.java)
+            startActivity(intent)
         }
     }
 
